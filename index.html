@@ -438,7 +438,7 @@
                 params.append('guest1', document.getElementById('guest1').value);
                 params.append('guest2', withSpouse.checked ? guest2.value : '');
             
-                fetch('https://script.google.com/macros/s/AKfycbx892IFcKDnnRh_bBV7-Z6ySLJxuIugzeyt_L_KBPAEU3OdhRJ75gCxAjluqSARH-ya/exec', {
+                fetch('https://docs.google.com/spreadsheets/d/1BWhd71uDtNHti-nmZzURPefQopxe4Iw7o7PBzEGh4ws/edit?usp=sharing', {
                     method: 'POST',
                     body: params
                 })
