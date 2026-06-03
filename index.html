@@ -32,14 +32,15 @@
         </div>
     </nav>
 
+    <!-- Связал главное фото wenddingPhoto.JPG через inline-style фоном -->
     <header class="intro" id="photo">
-        <div class="intro-bg" aria-hidden="true"></div>
+        <div class="intro-bg" style="background-image: url('wenddingPhoto.JPG');" aria-hidden="true"></div>
         <div class="intro-shade" aria-hidden="true"></div>
         <div class="intro-content">
-            <p class="intro-kicker" data-i18n="intro_kicker">ӘЛИ & БАҒДАТ</p>
+            <p class="intro-kicker" data-i18n="intro_kicker">РОМАН & ЭЛЬМИРА</p>
             <h1 class="intro-title" data-i18n="intro_title">Үйлену тойына шақыру</h1>
             <p class="intro-hint" data-i18n="intro_hint">Төмен сырғытыңыз</p>
-                <div class="countdown" aria-label="Countdown">
+            <div class="countdown" aria-label="Countdown">
                 <div class="cd-item">
                     <span id="cd-months">0</span>
                     <small>ай</small>
@@ -56,7 +57,7 @@
                     <span id="cd-minutes">0</span>
                     <small>мин</small>
                 </div>
-                    <div class="cd-item">
+                <div class="cd-item">
                     <span id="cd-seconds">0</span>
                     <small>сек</small>
                 </div>
@@ -67,10 +68,15 @@
     <section id="invite" class="section section-invite">
         <div class="container">
             <div class="invite-card">
-                <p class="invite-greeting" data-i18n="invite_greeting">Құрметті  біздің ағайын-туыс,бауырларларымыз,нағашы-жиен,құдаларымыз,достарымыз,әріптес-сыныптастарымыз жәнеде көршілеріміз!</p>
+                <!-- Добавил изображение колец ring.jpg в карточку -->
+                <div class="invite-decor" style="text-align: center; margin-bottom: 20px;">
+                    <img src="ring.jpg" alt="Rings" style="max-width: 80px; height: auto; opacity: 0.9;">
+                </div>
+
+                <p class="invite-greeting" data-i18n="invite_greeting">Құрметті біздің ағайын-туыс,бауырларларымыз,нағашы-жиен,құдаларымыз,достарымыз,әріптес-сыныптастарымыз жәнеде көршілеріміз!</p>
                 <div class="invite-text-block">
                     <p class="invite-text-line" data-i18n="invite_text_1">Сіздерді біз</p>
-                    <p class="invite-names" data-i18n="invite_names">Әли мен Бағдаттың</p>
+                    <p class="invite-names" data-i18n="invite_names">Роман мен Эльмираның</p>
                     <p class="invite-text-line" data-i18n="invite_text_2">өмірлеріндегі ең маңызды күндерінің бірі –</p>
                     <p class="invite-text-line" data-i18n="invite_text_3">үйлену тойының</p>
                     <p class="invite-text-line" data-i18n="invite_text_4">қадірлі қонағы болуға шақырамыз.</p>
@@ -81,7 +87,7 @@
                         <div class="detail-icon">🗓</div>
                         <div class="detail-content">
                             <div class="detail-label" data-i18n="invite_date_label">Күні</div>
-                            <div class="detail-value" data-i18n="invite_date">22 тамыз 2026</div>
+                            <div class="detail-value" data-i18n="invite_date">22 тамыз</div>
                         </div>
                     </div>
                     
@@ -97,14 +103,14 @@
                         <div class="detail-icon">📍</div>
                         <div class="detail-content">
                             <div class="detail-label" data-i18n="invite_address_label">Мекенжай</div>
-                            <a href="https://2gis.kz/uralsk/geo/70030077082660641/51.271784,51.171586" target="_blank" rel="noopener noreferrer" class="detail-value detail-link" data-i18n="invite_address">Алматы қаласы, Бостандыкский район, Микрорайон Хан-Тенгри, 126</a>
+                            <a href="https://2gis.kz/almaty/firm/70000001027755691/tab/reviews?m=76.894362%2C43.159331%2F16" target="_blank" rel="noopener noreferrer" class="detail-value detail-link" id="map-link" data-i18n="invite_address">Алматы қаласы, Бостандыкский район, Микрорайон Хан-Тенгри, 126</a>
                         </div>
                     </div>
                 </div>
 
                 <div class="invite-hosts">
-                    <p class="hosts-label" data-i18n="invite_hosts_label">Той иелері:</p>
-                    <p class="hosts-names" data-i18n="invite_hosts">Ольга & Рамазан</p>
+                    <p class="hosts-label" data-i18n="invite_hosts_label">Жігіттің ата-анасы:</p>
+                    <p class="hosts-names" data-i18n="invite_hosts">Ольга & Рамазон</p>
                 </div>
 
                 <p class="invite-closing" data-i18n="invite_closing">Сіздермен қуанышымызды бөлісуге асыға күтеміз! 🤍</p>
@@ -116,7 +122,7 @@
         </div>
     </section>
 
-  <section id="form" class="section section-form">
+    <section id="form" class="section section-form">
         <div class="container">
             <div class="form-card">
                 <h2 class="section-title" data-i18n="form_title">Толтыру</h2>
@@ -189,23 +195,23 @@
                 nav_photo: 'Фото',
                 nav_invite: 'Шақыру',
                 nav_form: 'Толтыру',
-                intro_kicker: 'ӘЛИ & БАҒДАТ',
+                intro_kicker: 'РОМАН & ЭЛЬМИРА',
                 intro_title: 'Үйлену тойына шақыру',
                 intro_hint: 'Төмен сырғытыңыз',
-                invite_greeting: 'Құрметті  біздің ағайын-туыс,бауырларларымыз,нағашы-жиен,құдаларымыз,достарымыз,әріптес-сыныптастарымыз жәнеде көршілеріміз!',
+                invite_greeting: 'Құрметті біздің ағайын-туыс,бауырларларымыз,нағашы-жиен,құдаларымыз,достарымыз,әріптес-сыныптастарымыз жәнеде көршілеріміз!',
                 invite_text_1: 'Сіздерді біз',
-                invite_names: 'Әли мен Бағдаттың',
+                invite_names: 'Роман мен Эльмираның',
                 invite_text_2: 'өмірлеріндегі ең маңызды күндерінің бірі –',
                 invite_text_3: 'үйлену тойының',
                 invite_text_4: 'қадірлі қонағы болуға шақырамыз.',
                 invite_date_label: 'Күні',
-                invite_date: '22 тамыз 2026',
+                invite_date: '22 тамыз',
                 invite_time_label: 'Уақыты',
                 invite_time: '17:00',
                 invite_address_label: 'Мекенжай',
                 invite_address: 'Алматы қаласы, Бостандыкский район, Микрорайон Хан-Тенгри, 126',
-                invite_hosts_label: 'Той иелері:',
-                invite_hosts: 'Ольга & Рамазан',
+                invite_hosts_label: 'Жігіттің ата-анасы:',
+                invite_hosts: 'Ольга & Рамазон',
                 invite_closing: 'Сіздермен қуанышымызды бөлісуге асыға күтеміз! 🤍',
                 invite_button: 'Шақыруды қабылдау',
                 form_title: 'Толтыру',
@@ -226,7 +232,7 @@
                 nav_photo: 'Photo',
                 nav_invite: 'Invitation',
                 nav_form: 'Details',
-                intro_kicker: 'ALI & BAGDAT',
+                intro_kicker: 'ROMAN & ELMIRA',
                 intro_title: 'Wedding Invitation',
                 intro_hint: 'Scroll down',
                 invite_greeting: 'Dear Guest!',
@@ -236,13 +242,13 @@
                 invite_text_3: 'of their lives –',
                 invite_text_4: 'their wedding celebration.',
                 invite_date_label: 'Date',
-                invite_date: 'August 22, 2026',
+                invite_date: 'August 22',
                 invite_time_label: 'Time',
                 invite_time: '17:00',
                 invite_address_label: 'Address',
-                invite_address: 'Almaty, Khan-Tengri 126',
-                invite_hosts_label: 'Wedding hosts:',
-                invite_hosts: 'Olga & Ramazan',
+                invite_address: 'Almaty city, Bostandyk district, Khan-Tengri microdistrict, 126',
+                invite_hosts_label: "Groom's parents:",
+                invite_hosts: 'Olga & Ramazon',
                 invite_closing: 'We look forward to seeing you 🤍',
                 invite_button: 'Accept invitation',
                 form_title: 'Details',
@@ -263,23 +269,23 @@
                 nav_photo: 'Фото',
                 nav_invite: 'Приглашение',
                 nav_form: 'Заполнение',
-                intro_kicker: 'ALI & BAGDAT',
+                intro_kicker: 'РОМАН & ЭЛЬМИРА',
                 intro_title: 'Приглашение на свадьбу',
                 intro_hint: 'Прокрутите вниз',
                 invite_greeting: 'Уважаемый гость!',
                 invite_text_1: 'Мы приглашаем вас',
-                invite_names: 'Али и Бағдат',
+                invite_names: 'Романа и Эльмиры',
                 invite_text_2: 'стать почётным гостем одного из самых важных дней',
                 invite_text_3: 'их жизни –',
                 invite_text_4: 'свадебного торжества.',
                 invite_date_label: 'Дата',
-                invite_date: '22 августа 2026',
+                invite_date: '22 августа',
                 invite_time_label: 'Время',
                 invite_time: '17:00',
                 invite_address_label: 'Адрес',
-                invite_address: 'Алматы, мкр. Хан-Тенгри, 126',
-                invite_hosts_label: 'Хозяева торжества:',
-                invite_hosts: 'Сатжан & Гүлсайран',
+                invite_address: 'г. Алматы, Бостандыкский район, мкр. Хан-Тенгри, 126',
+                invite_hosts_label: 'Родители жениха:',
+                invite_hosts: 'Ольга и Рамазон',
                 invite_closing: 'Ждём вас с нетерпением 🤍',
                 invite_button: 'Принять приглашение',
                 form_title: 'Заполнение',
@@ -294,7 +300,7 @@
                 thanks_title: 'Спасибо, что приняли приглашение',
                 thanks_text: 'Будем рады вас видеть.',
                 thanks_close: 'Закрыть',
-                footer_text: 'Сделано с любовью • Roman & Elmira © 2026'
+                footer_text: 'Сделано с любовью • Роман и Эльмира © 2026'
             }
         };
 
@@ -389,12 +395,6 @@
                         setMusicUI(false);
                     }
                 });
-            } else {
-                if (musicBtn) {
-                    musicBtn.style.display = 'flex';
-                    musicBtn.style.opacity = '0.5';
-                    musicBtn.style.cursor = 'not-allowed';
-                }
             }
 
             document.querySelectorAll('.lang-btn').forEach(function (btn) {
@@ -404,7 +404,7 @@
                 });
             });
 
-            setLanguage('ru');
+            setLanguage('kk');
 
             document.getElementById('accept-invite').addEventListener('click', function () {
                 scrollToId('form');
@@ -421,14 +421,10 @@
             });
 
             var thanks = document.getElementById('thanks');
-            // document.getElementById('guest-form').addEventListener('submit', function (e) {
-            //     e.preventDefault();
-            //     thanks.hidden = false;
-            //     document.body.classList.add('no-scroll');
-            // });
 
             document.getElementById('guest-form').addEventListener('submit', function (e) {
                 e.preventDefault();
+                const form = e.target;
                 const submitBtn = form.querySelector('button[type="submit"]');
                 submitBtn.disabled = true; 
                 const params = new URLSearchParams();
@@ -445,7 +441,6 @@
                     body: params
                 })
                 .then(() => {
-                    const form = document.getElementById('guest-form');
                     const withSpouse = document.getElementById('with-spouse');
                     const spouseField = document.getElementById('spouse-field');
                     const guest2 = document.getElementById('guest2');
@@ -472,7 +467,7 @@
             });
 
             function updateCountdown() {
-                const target = new Date(2026, 3, 25, 19, 0, 0);
+                const target = new Date(2026, 7, 22, 17, 0, 0); // 22 августа 2026, 17:00
                 const now = new Date();
             
                 if (now >= target) return;
@@ -498,9 +493,5 @@
             setInterval(updateCountdown, 1000);
         });
     </script>
-
 </body>
 </html>
-
-
-
