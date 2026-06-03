@@ -109,9 +109,7 @@
 
                 <p class="invite-closing" data-i18n="invite_closing">Сіздермен қуанышымызды бөлісуге асыға күтеміз! 🤍</p>
 
-                <button type="button" class="cta-button" id="accept-invite" data-i18n="invite_button">
-                    Шақыруды қабылдау
-                </button>
+                <button type="button" class="cta-button" id="accept-invite" data-i18n="invite_button">Шақыруды қабылдау</button>
             </div>
         </div>
     </section>
@@ -138,9 +136,7 @@
                         <input id="guest2" name="guest2" type="text" placeholder="Мысалы: Асқар Нұрлан" data-i18n-placeholder="form_spouse_placeholder">
                     </div>
 
-                    <button type="submit" class="cta-button cta-secondary" data-i18n="form_finish_button">
-                        Аяқтау
-                    </button>
+                    <button type="submit" class="cta-button cta-secondary" data-i18n="form_finish_button">Аяқтау</button>
                 </form>
             </div>
         </div>
@@ -177,7 +173,7 @@
                 intro_kicker: 'РОМАН & ЭЛЬМИРА', intro_title: 'Үйлену тойына шақыру', intro_hint: 'Төмен сырғытыңыз',
                 invite_greeting: 'Құрметті ағайын-туыс, бауырлар, достар және қонақтар!',
                 invite_text_1: 'Сіздерді біз', invite_names: 'Роман мен Эльмираның',
-                invite_text_2: 'өмірлеріндегі ең маңызды күндерінің бірі –', invite_text_3: 'үйлену тойының', invite_text_4: 'қадірлі қонағы болуға шақырамыз.',
+                invite_text_2: 'өмірлеріндегі ең маңызны күндерінің бірі –', invite_text_3: 'үйлену тойының', invite_text_4: 'қадірлі қонағы болуға шақырамыз.',
                 invite_date_label: 'Күні', invite_date: '22 тамыз', invite_time_label: 'Уақыты', invite_time: '17:00',
                 invite_address_label: 'Мекенжай', invite_address: 'Алматы қаласы, Бостандық ауданы, Хан-Тәңірі шағын ауданы, 126',
                 invite_hosts_label: 'Той иелері:', invite_hosts: 'Рамазан & Ольга',
@@ -285,13 +281,12 @@
 
             if (audio && musicBtn) {
                 audio.volume = 0.4;
-                
                 musicBtn.style.display = 'flex';
                 musicBtn.style.visibility = 'visible';
                 musicBtn.style.opacity = '1';
                 
                 audio.addEventListener('error', function(e) {
-                    console.warn('Не удалось загрузить аудио файл toizhira.mp3:', e);
+                    console.warn('Аудио ойнату қатесі:', e);
                     musicBtn.style.opacity = '0.6';
                 });
 
@@ -317,7 +312,6 @@
                             setMusicUI(true);
                         }).catch(function (err) {
                             setMusicUI(false);
-                            alert('Не удалось воспроизвести музыку. Проверьте файл toizhira.mp3.');
                         });
                     } else {
                         audio.pause();
@@ -333,6 +327,7 @@
                 });
             });
 
+            // По умолчанию ставим казахский при загрузке
             setLanguage('kk');
 
             document.getElementById('accept-invite').addEventListener('click', function () {
@@ -391,7 +386,7 @@
             });
 
             function updateCountdown() {
-                const target = new Date(2026, 7, 22, 17, 0, 0); // 22 августа 2026 (Месяцы в JS начинаются с 0, поэтому 7 — это август)
+                const target = new Date(2026, 7, 22, 17, 0, 0); 
                 const now = new Date();
             
                 if (now >= target) return;
