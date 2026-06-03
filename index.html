@@ -118,7 +118,7 @@
         .pretty-form input[type="text"]:focus { outline: none; border-color: var(--primary); }
         .pretty-form .toggle { display: flex; align-items: center; gap: 10px; margin: 20px 0; text-align: left; }
 
-        /* Музыка и Модалка благодарности */
+        /* Музыка */
         .music-btn {
             position: fixed; bottom: 20px; right: 20px; width: 50px; height: 50px;
             background: white; border-radius: 50%; border: none; box-shadow: 0 4px 15px rgba(0,0,0,0.1);
@@ -126,13 +126,16 @@
         }
         .music-icon.muted .music-speaker { display: none; }
         
-        /* Исправлено: Окно по умолчанию скрыто (display: none) */
+        /* МОДАЛЬНОЕ ОКНО — ЖЕСТКОЕ СКРЫТИЕ ПО УМОЛЧАНИЮ */
         .thanks {
-            position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.6);
-            display: none; align-items: center; justify-content: center; z-index: 2000; padding: 20px;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6);
+            display: none !important; /* !important перебьет любые случайные инлайн-стили */
+            align-items: center; justify-content: center; z-index: 2000; padding: 20px;
         }
-        /* Класс для контролируемого показа из JS */
-        .thanks.show { display: flex; }
+        /* Класс для контролируемого показа */
+        .thanks.show { 
+            display: flex !important; 
+        }
         
         .footer { text-align: center; padding: 30px; font-size: 0.8rem; color: #7f8c8d; background: #f4f1ea; }
 
@@ -155,7 +158,6 @@
                 <li><a href="#invite" data-i18n="nav_invite">Шақыру</a></li>
                 <li><a href="#form" data-i18n="nav_form">Толтыру</a></li>
             </ul>
-            <!-- Исправлено: Названия кнопок строго соответствуют дизайну -->
             <div class="lang-switcher" aria-label="Выбор языка">
                 <button type="button" class="lang-btn active" data-lang="kk">Қаз</button>
                 <button type="button" class="lang-btn" data-lang="en">En</button>
@@ -193,7 +195,7 @@
                     <p class="invite-text-line" data-i18n="invite_text_1">Сіздерді біз</p>
                     <p class="invite-names" data-i18n="invite_names">Роман мен Эльмираның</p>
                     <p class="invite-text-line" data-i18n="invite_text_2">өмірлеріндегі ең маңызды күндерінің бірі – үйлену тойының</p>
-                    <p class="invite-text-line" data-i18n="invite_text_4">қадірлі гонағы болуға шақырамыз.</p>
+                    <p class="invite-text-line" data-i18n="invite_text_4">қадірлі қонағы болуға шақырамыз.</p>
                 </div>
                 
                 <div class="invite-details-grid">
@@ -268,7 +270,7 @@
         </svg>
     </button>
 
-    <!-- Модальное окно благодарности -->
+    <!-- ИСПРАВЛЕНО: Убран инлайн-стиль display, блокирующий скрытие окна -->
     <div class="thanks" id="thanks" role="dialog" aria-modal="true">
         <div class="thanks-card invite-card" style="max-width: 450px; margin: auto;">
             <h2 class="section-title" data-i18n="thanks_title">Шақыруымызды қабылдағаныңызға рахмет</h2>
@@ -436,7 +438,7 @@
                     spouseField.hidden = true;
                     guest2.required = false;
                     
-                    // Показываем окно строго через добавление класса
+                    // Показываем окно добавлением класса
                     document.getElementById('thanks').classList.add('show');
                     document.body.classList.add('no-scroll');
                 })
