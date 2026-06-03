@@ -39,7 +39,7 @@
         .lang-switcher { display: flex; gap: 5px; }
         .lang-btn {
             background: none; border: 1px solid #ddd; padding: 4px 8px; font-size: 0.75rem;
-            cursor: pointer; border-radius: 4px; transition: all 0.3s;
+            cursor: pointer; border-radius: 4px; transition: all 0.3s; color: var(--text);
         }
         .lang-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
 
@@ -118,17 +118,22 @@
         .pretty-form input[type="text"]:focus { outline: none; border-color: var(--primary); }
         .pretty-form .toggle { display: flex; align-items: center; gap: 10px; margin: 20px 0; text-align: left; }
 
-        /* Музыка и Модалка */
+        /* Музыка и Модалка благодарности */
         .music-btn {
             position: fixed; bottom: 20px; right: 20px; width: 50px; height: 50px;
             background: white; border-radius: 50%; border: none; box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 999;
         }
         .music-icon.muted .music-speaker { display: none; }
+        
+        /* Исправлено: Окно по умолчанию скрыто (display: none) */
         .thanks {
             position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.6);
-            display: flex; align-items: center; justify-content: center; z-index: 2000; padding: 20px;
+            display: none; align-items: center; justify-content: center; z-index: 2000; padding: 20px;
         }
+        /* Класс для контролируемого показа из JS */
+        .thanks.show { display: flex; }
+        
         .footer { text-align: center; padding: 30px; font-size: 0.8rem; color: #7f8c8d; background: #f4f1ea; }
 
         @keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateY(0); } 40% { transform: translateY(-10px); } 60% { transform: translateY(-5px); } }
@@ -150,6 +155,7 @@
                 <li><a href="#invite" data-i18n="nav_invite">Шақыру</a></li>
                 <li><a href="#form" data-i18n="nav_form">Толтыру</a></li>
             </ul>
+            <!-- Исправлено: Названия кнопок строго соответствуют дизайну -->
             <div class="lang-switcher" aria-label="Выбор языка">
                 <button type="button" class="lang-btn active" data-lang="kk">Қаз</button>
                 <button type="button" class="lang-btn" data-lang="en">En</button>
@@ -187,7 +193,7 @@
                     <p class="invite-text-line" data-i18n="invite_text_1">Сіздерді біз</p>
                     <p class="invite-names" data-i18n="invite_names">Роман мен Эльмираның</p>
                     <p class="invite-text-line" data-i18n="invite_text_2">өмірлеріндегі ең маңызды күндерінің бірі – үйлену тойының</p>
-                    <p class="invite-text-line" data-i18n="invite_text_4">қадірлі қонағы болуға шақырамыз.</p>
+                    <p class="invite-text-line" data-i18n="invite_text_4">қадірлі гонағы болуға шақырамыз.</p>
                 </div>
                 
                 <div class="invite-details-grid">
@@ -262,11 +268,11 @@
         </svg>
     </button>
 
-    <div class="thanks" id="thanks" hidden role="dialog" aria-modal="true">
+    <!-- Модальное окно благодарности -->
+    <div class="thanks" id="thanks" role="dialog" aria-modal="true">
         <div class="thanks-card invite-card" style="max-width: 450px; margin: auto;">
             <h2 class="section-title" data-i18n="thanks_title">Шақыруымызды қабылдағаныңызға рахмет</h2>
             <p class="muted" data-i18n="thanks_text">Сізді қуана қарсы аламыз.</p>
-            <!-- Возвращен id="close-thanks" — теперь окно закрывается идеально -->
             <button type="button" class="cta-button cta-secondary" id="close-thanks" data-i18n="thanks_close">Жабу</button>
         </div>
     </div>
@@ -429,20 +435,23 @@
                     withSpouse.checked = false;
                     spouseField.hidden = true;
                     guest2.required = false;
-                    document.getElementById('thanks').hidden = false;
+                    
+                    // Показываем окно строго через добавление класса
+                    document.getElementById('thanks').classList.add('show');
                     document.body.classList.add('no-scroll');
                 })
                 .catch(() => { alert('Қате болды. Қайтадан көріңіз.'); })
                 .finally(() => { submitBtn.disabled = false; });
             });
             
+            // Надежное закрытие окна благодарности
             document.getElementById('close-thanks').addEventListener('click', function () {
-                document.getElementById('thanks').hidden = true;
+                document.getElementById('thanks').classList.remove('show');
                 document.body.classList.remove('no-scroll');
             });
 
             function updateCountdown() {
-                const target = new Date(2026, 7, 22, 17, 0, 0); // 22 августа 2026, 17:00
+                const target = new Date(2026, 7, 22, 17, 0, 0); 
                 const now = new Date();
                 let diff = target - now;
             
